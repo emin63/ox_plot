@@ -76,8 +76,9 @@ def plot(orig_data, bsize='1Min', **pltargs):
     candlestick_ohlc(ax, [tuple(x) for x in data[
         ['date', 'open', 'high', 'low', 'close']].to_records(index=False)],
                      width=bparams.width, **pltargs)
-    plt.plot([data.index[3]], [40], 'x')
-    plt.show()
+    # FIXME: could do something like the following to plot trades
+    #plt.plot([data.index[3]], [41], '^')
+    #plt.plot([data.index[4]], [41], 'v')
     ax.xaxis.set_major_formatter(bparams.formatter)
     ax.xaxis.set_major_locator(bparams.major_loc)
     ax.xaxis.set_minor_locator(bparams.minor_loc)
