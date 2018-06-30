@@ -15,7 +15,7 @@ try:
     from matplotlib.finance import candlestick2_ohlc
 except ImportError:
     logging.warning('Unable to import matplotlib.finance; try mpl_finance')
-    from mpl_finance import candlestick2_ohlc
+    from mpl_finance import candlestick2_ohlc, candlestick_ohlc
 
 
 
@@ -73,8 +73,8 @@ def plot(orig_data, bsize='1Min', **pltargs):
     bparams = BSizeParams(bsize)
 
     fig = plt.figure(figsize=(10, 5))
-    # axisbg='.9' sets to a very light gray background
-    axes = fig.add_axes([0.1, 0.2, 0.85, 0.7], axisbg='.9')
+
+    axes = fig.add_axes([0.1, 0.2, 0.85, 0.7])
     # customization of the axis
     axes.spines['right'].set_color('none')
     axes.spines['top'].set_color('none')
