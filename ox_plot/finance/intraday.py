@@ -1,6 +1,8 @@
 """Tools for making bar plots for intraday finance data.
 """
 
+import logging
+
 import matplotlib              # Need these lines to prevent emacs hanging or
 matplotlib.interactive(False)  # exceptions when using non-GUI virtual machine
 matplotlib.use('PS')           # in an interactive session
@@ -8,7 +10,13 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from matplotlib.dates import (
     DateFormatter, MonthLocator, num2date, HourLocator, MinuteLocator)
-from matplotlib.finance import candlestick_ohlc
+
+try:
+    from matplotlib.finance import candlestick2_ohlc
+except ImportError:
+    logging.warning('Unable to import matplotlib.finance; try mpl_finance')
+    from mpl_finance import candlestick2_ohlc
+
 
 
 class BSizeParams:

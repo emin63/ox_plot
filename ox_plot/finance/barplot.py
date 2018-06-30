@@ -126,9 +126,6 @@ def simple_pandas_plot(orig_data, output_file=None, mainTitle='',
     #for my_ax in axes:
     #    clean_axis(my_ax) #FIXME
     
-    if 'Short_volume_pct' in data:
-        plot_short_volume_pct(data, plt, ax_srt)
-    
     if output_file:
         fig.savefig(output_file)
 
